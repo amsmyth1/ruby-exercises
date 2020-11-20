@@ -10,8 +10,8 @@ This repository of exercises is one of the best tools you've got to learn Ruby. 
  - [x] ints_and_floats
  - collections/arrays video walk-through
   - [x] arrays.rb
-  - [ ] hashes.rb
-  - [ ] nested_collections.rb
+  - [x] hashes.rb
+  - [x] nested_collections.rb
 
 #### initialize
   - [ ] aardvark
