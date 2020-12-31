@@ -1,4 +1,4 @@
-def stores 
+def stores
   {
     olive_garden: {
       employees: ['Jeff', 'Zach', 'Samantha'],

@@ -116,28 +116,50 @@ class NestedTest < MiniTest::Test
   end
 
   def test_full_menu_price_for_olive_garden
-    skip
-    #=======================
-    # full_menu_price = <your code here>
-    #=======================
+    full_menu_price =
+      stores[:olive_garden][:dishes].sum do |dish|
+        dish[:price]
+      end
+
     assert_equal 27, full_menu_price
   end
 
   def test_full_menu_for_olive_garden
-    skip
-    #=======================
-    # olive_garden_menu = <your code here>
-    #=======================
-    expected = ({"Risotto"=>{:name=>"Risotto", :ingredients=>["Rice", "Cheese", "Butter"], :price=>12},
-                  "Steak"=>{:name=>"Steak", :ingredients=>["Beef", "Garlic"], :price=>15}})
+    olive_garden_menu = {}
+    stores[:olive_garden][:dishes].map do |dish|
+      olive_garden_menu["#{dish[:name]}"] = dish
+    end
+
+    expected = ({
+                  "Risotto"=> {
+                                :name=>"Risotto",
+                                :ingredients=>["Rice", "Cheese", "Butter"],
+                                :price=>12},
+                  "Steak"=>   {
+                                :name=>"Steak",
+                                :ingredients=>["Beef", "Garlic"],
+                                :price=>15}})
+
     assert_equal expected, olive_garden_menu
   end
 
   def test_menu_accross_all_restaurants
-     skip
-    #=======================
-    #  full_menu = <your code here>
-    #=======================
+    def restuarant_menu(store)
+      restuarant_menu = {}
+        store[:dishes].each do |dish|
+          restuarant_menu["#{dish[:name]}"] = dish
+        end
+      restuarant_menu
+    end
+
+    def full_menu
+      full_menu = {}
+      stores.map do |store|
+        restuarant_menu(store)
+      end
+    end
+
+
     expected = ({"Risotto"=>
                       {:name=>"Risotto", :ingredients=>["Rice", "Cheese", "Butter"], :price=>12},
                 "Steak"=>
