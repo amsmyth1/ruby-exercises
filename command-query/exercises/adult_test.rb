@@ -10,13 +10,15 @@ class AdultTest < Minitest::Test
   end
 
   def test_adult_does_not_get_drunk_too_easily
-    skip
+    # skip
     adult = Adult.new
 
     adult.consume_an_alcoholic_beverage
+    assert_equal 1, adult.number_of_drinks
     assert_equal true, adult.sober?, "Still sober."
 
     adult.consume_an_alcoholic_beverage
+    assert_equal 2, adult.number_of_drinks
     assert_equal true, adult.sober?, "Not drunk yet."
 
     adult.consume_an_alcoholic_beverage
