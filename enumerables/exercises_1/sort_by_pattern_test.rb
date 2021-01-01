@@ -8,11 +8,11 @@ class SortByPatternTest < Minitest::Test
     words = ["broccoli", "Carrots", "FISH", "Bacon", "candy"]
     transformed = []
     words.each do |word|
-      transformed << [word.downcase, word]
+      transformed << word.downcase
     end
-    transformed = transformed.sort
+    transformed.sort
     sorted = []
-    transformed.each do |sort_key, word|
+    transformed.each do |word|
       sorted << word
     end
     assert_equal ["Bacon", "broccoli", "candy", "Carrots", "FISH"], sorted
