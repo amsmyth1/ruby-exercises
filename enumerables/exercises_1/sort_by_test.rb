@@ -52,7 +52,7 @@ class SortByTest < Minitest::Test
     prices = [3.02, 9.91, 7.9, 10.01, 11.0]
     sorted = prices.sort_by do |price|
       price % 1
-    end 
+    end
     assert_equal [11.0, 10.01, 3.02, 7.9, 9.91], sorted
   end
 
